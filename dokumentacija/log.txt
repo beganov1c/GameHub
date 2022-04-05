@@ -1,8 +1,0 @@
-Uradjeno:
-- specifikacija projekta
-- use-case dijagram
-- dijagram aktivnosti
-
-Sljedeci task:
-- UI prototip
-- analiza i dizajn sistema
