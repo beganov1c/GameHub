@@ -20,9 +20,17 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string imeIgrice)
         {
-            return View(await _context.Igrica.ToListAsync());
+            var igrica = from i in _context.Igrica
+                          select i;
+
+            if (!String.IsNullOrEmpty(imeIgrice))
+            {
+                igrica = igrica.Where(s => s.Naziv!.Contains(imeIgrice));
+            }
+
+            return View(await igrica.ToListAsync());
         }
 
         // GET: Igrica/Details/5
