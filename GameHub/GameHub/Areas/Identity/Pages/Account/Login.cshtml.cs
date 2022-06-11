@@ -48,9 +48,10 @@ namespace GameHub.Areas.Identity.Pages.Account
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Lozinka")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Zapamti me?")]
             public bool RememberMe { get; set; }
         }
 
