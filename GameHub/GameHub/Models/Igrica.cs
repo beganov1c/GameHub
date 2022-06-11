@@ -1,7 +1,10 @@
-﻿namespace GameHub.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GameHub.Models
 {
     public class Igrica
     {
+        [Key]
         public int Id { get; set; }
         public string Naziv { get; set; }
         public string Opis { get; set; }
