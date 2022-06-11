@@ -2,6 +2,7 @@
 {
     public class Igrica
     {
+        public int Id { get; set; }
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public double SrednjaOcjena { get; set; }
