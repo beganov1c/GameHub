@@ -10,6 +10,7 @@ namespace GameHub.Models
         public string Opis { get; set; }
         public double SrednjaOcjena { get; set; }
         public string Autor { get; set; }
+        [EnumDataType(typeof(Zanr))]
         public Zanr Zanr { get; set; }
         public bool RRated { get; set; }
 
