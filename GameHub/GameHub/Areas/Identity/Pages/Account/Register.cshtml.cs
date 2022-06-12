@@ -72,6 +72,8 @@ namespace GameHub.Areas.Identity.Pages.Account
             [Required]
             [Display(Name = "UserRole")]
             public string UserRole { get; set; }
+
+            public string Slika { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)

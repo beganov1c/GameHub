@@ -27,13 +27,51 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-top:10px">
                 <select asp-for="Input.UserRole"
                         asp-items="@(Model.Roles)">
                     <option>Izaberite svoju ulogu</option>
                 </select>
                 <span asp-validation-for="Input.UserRole" class="text-danger"></span>
             </div>
+            <div class="form-group" style="padding-top:10px">
+                <label asp-for="Input.Slika" class="control-label"></label>
+                <input asp-for="Input.Slika" class="form-control" style="visibility: hidden"/>
+                <span asp-validation-for="Input.Slika" class="text-danger"></span>
+
+                <div style="padding: 1rem; display: grid; grid-template-columns: 50% 50%">
+                    <div id="results">Slika će se prikazati ovdje...</div>
+
+                    <div style="margin-left: 20rem">
+                        <div id="my_camera"></div>
+
+                        <script type="text/javascript" src="~/js/webcam.min.js"></script>
+
+                        <script>
+                            Webcam.set({
+                                width: 320,
+                                height: 240,
+                                image_format: 'jpeg',
+                                jpeg_quality: 90
+                            });
+                            Webcam.attach( '#my_camera' );
+                        </script>
+
+                        <script>
+                            function take_snapshot() {
+                                Webcam.snap(function(data_uri)
+                                {
+                                    document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+                                    document.getElementById('Slika').value = data_uri;
+                                });
+                            }
+                        </script>
+
+                        <input type=button id="takeshot" class="btn btn-danger" value="Uslikaj" onClick="take_snapshot()">
+                    </div>
+                </div>
+            </div>
+
             <div style="height:5px; width:100%; clear:both;"></div>
             <button type="submit" class="btn btn-danger">Registriraj se</button>
         </form>
