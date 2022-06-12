@@ -53,6 +53,8 @@ namespace GameHub.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required][Display(Name = "Korisničko ime")] 
+            public string Username { get; set; }
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -68,13 +70,19 @@ namespace GameHub.Areas.Identity.Pages.Account
             [Display(Name = "Potvrdi lozinku")]
             [Compare("Password", ErrorMessage = "Lozinka i potvrda lozinke se ne poklapaju.")]
             public string ConfirmPassword { get; set; }
+            [Display(Name = "Datum rođenja")]
+            public DateTime BirthDate { get; set; }
+            [Display(Name = "Opis(neobavezno)")]
+            public String Opis { get; set; }
 
             [Required]
             [Display(Name = "UserRole")]
             public string UserRole { get; set; }
 
+
             public string Slika { get; set; }
-        }
+
+    }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
