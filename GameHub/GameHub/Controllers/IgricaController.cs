@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameHub.Data;
 using GameHub.Models;
-
 namespace GameHub.Controllers
+
 {
     public class IgricaController : Controller
     {
@@ -20,9 +20,17 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string imeIgrice)
         {
-            return View(await _context.Igrica.ToListAsync());
+            var igrica = from m in _context.Igrica
+                         select m;
+
+            if (!String.IsNullOrEmpty(imeIgrice))
+            {
+                igrica = igrica.Where(s => s.Naziv.Contains(imeIgrice));
+            }
+
+            return View(await igrica.ToListAsync());
         }
 
         // GET: Igrica/Details/5
