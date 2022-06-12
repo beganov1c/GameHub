@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -34,6 +35,11 @@ namespace GameHub.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            Roles = new List<SelectListItem>
+            {
+                new SelectListItem {Value = "Gamer", Text ="Gamer"},
+                new SelectListItem {Value = "Developer", Text = "Developer"},
+            };
         }
 
         [BindProperty]
@@ -42,6 +48,8 @@ namespace GameHub.Areas.Identity.Pages.Account
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        public List<SelectListItem> Roles { get; }
 
         public class InputModel
         {
@@ -60,6 +68,10 @@ namespace GameHub.Areas.Identity.Pages.Account
             [Display(Name = "Potvrdi lozinku")]
             [Compare("Password", ErrorMessage = "Lozinka i potvrda lozinke se ne poklapaju.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "UserRole")]
+            public string UserRole { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -79,7 +91,7 @@ namespace GameHub.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    await _userManager.AddToRoleAsync(user, Input.UserRole);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
