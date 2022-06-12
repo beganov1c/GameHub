@@ -17,17 +17,17 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger border-bottom box-shadow mb-3">
             <div class="container">
-                <a asp-area="" asp-controller="Home" asp-action="Index"><img src='https://i.postimg.cc/xXxcP0ZF/LogoV1.png' border='0' width=75px height=75px alt='LogoV1' /></a>
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src='https://i.postimg.cc/xXxcP0ZF/LogoV1.png' border='0' width=50px height=50px alt='LogoV1' /></a>
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">GameHub</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     
                     <form width="100" asp-controller="Igrica" asp-action="Index">
                     <p>
-                        Title: <input type="text" name="SearchString" />
+                        <font color="white">Title:</font> <input type="text" name="SearchString" />
                                <input type="submit" value="Traži" />
                     </p>
                     </form>
@@ -45,7 +45,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-white bg-danger">
         <div class="container">
             &copy; 2022 - GameHub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Pravila korištenja</a>
         </div>

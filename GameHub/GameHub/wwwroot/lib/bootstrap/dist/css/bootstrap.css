@@ -4304,7 +4304,7 @@ fieldset:disabled .btn {
 .navbar-brand {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
   font-size: 1.25rem;
   text-decoration: none;
   white-space: nowrap;
@@ -4315,7 +4315,7 @@ fieldset:disabled .btn {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-left: 0;
+  padding-left: 5px;
   margin-bottom: 0;
   list-style: none;
 }
