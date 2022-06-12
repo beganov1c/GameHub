@@ -69,3 +69,31 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+form {
+    width: 400px;
+    margin: 10px auto;
+}
+
+.search {
+    padding: 6px 15px;
+    background: #ffffff;
+    border: 0px thin #ffffff;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.searchbutton {
+    position: relative;
+    padding: 6px 15px;
+    left: -8px;
+    border: 2px thin #373837;
+    border-radius: 5px;
+    background-color: #373837;
+    color: #fafafa;
+}
+
+    .searchbutton:hover {
+        background-color: #fafafa;
+        color: #373837;
+    }

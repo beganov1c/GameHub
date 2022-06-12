@@ -23,13 +23,11 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between " style="padding-top:16px; margin-left:50px">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between " style="margin-left:50px">
                     
-                    <form width="200" asp-controller="Igrica" asp-action="Index">
-                    <p>
-                        <input type="text" name="SearchString" placeholder="  Unesite ime igrice ili korisnika..." style="width:300px; border-radius:10px;" />
-                               <input type="submit" value="Traži" style="border-radius:10px;"/>
-                    </p>
+                    <form asp-controller="Igrica" asp-action="Index">
+                        <input type="text" class="search" placeholder="Unesite ime igrice..." required >
+                        <a asp-controller="Igrica" asp-action="Index"><input type="button" class="searchbutton" value="Pretraži"></a>
                     </form>
                  
                     <partial name="_LoginPartial" />
