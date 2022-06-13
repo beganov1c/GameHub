@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Naziv)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SrednjaOcjena)
+                Srednja ocjena
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Autor)
@@ -37,13 +37,14 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <img src="@Url.Content(item.Slika)" alt="cover" width="250" height="350" />
+                <img src="@Url.Content(item.Slika)" alt="cover" width="150" height="200" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
+                <font size="5">@Html.DisplayFor(modelItem => item.Naziv)</font>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SrednjaOcjena)
+                <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="20" height="20" style="margin-bottom:10px"/>
+                <font size="5">@Html.DisplayFor(modelItem => item.SrednjaOcjena)</font>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Autor)

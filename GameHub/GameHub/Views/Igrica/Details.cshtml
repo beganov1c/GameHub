@@ -4,57 +4,68 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalji</h1>
 
 <div>
     <h4>Igrica</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Naziv)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Naziv)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Opis)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Opis)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SrednjaOcjena)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SrednjaOcjena)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Autor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Autor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Zanr)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Zanr)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RRated)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RRated)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Slika)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Slika)
-        </dd>
-    </dl>
+
+    <div class="detail-container">
+
+        <div class="detail-child">
+            <dl class="cover">
+                <dt>
+                    <img src="@Url.Content(Model.Slika)" alt="cover" width="350" height="450" />
+                </dt>
+            </dl>
+        </div>
+
+        <div class="detail-child">
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    <font size="4">@Html.DisplayNameFor(model => model.Naziv):</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <font size="5">@Html.DisplayFor(model => model.Naziv)</font>
+                </dd>
+                <dt class = "col-sm-2">
+                     <font size="4">@Html.DisplayNameFor(model => model.Opis):</font>
+                </dt>
+                <dd class = "col-sm-10">
+                     <font size="4">@Html.DisplayFor(model => model.Opis)</font>
+                </dd>
+                <dt class = "col-sm-2">
+                    <font size="4">Srednja ocjena:</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
+                    <font size="6">@Html.DisplayFor(model => model.SrednjaOcjena)</font>
+                </dd>
+                <dt class = "col-sm-2">
+                    <font size="4">@Html.DisplayNameFor(model => model.Autor):</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <font size="4">@Html.DisplayFor(model => model.Autor)</font>
+                </dd>
+                <dt class = "col-sm-2">
+                    <font size="4">@Html.DisplayNameFor(model => model.Zanr):</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <font size="4">@Html.DisplayFor(model => model.Zanr)</font>
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.RRated)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.RRated)
+                </dd>
+            </dl>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

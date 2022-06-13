@@ -119,3 +119,13 @@ form {
         background-color: #fafafa;
         color: #ff0000;
     }
+
+.detail-container {
+    padding: 10px;
+}
+
+.detail-child {
+    width: 40%;
+    float: left;
+    padding: 10px;
+} 
