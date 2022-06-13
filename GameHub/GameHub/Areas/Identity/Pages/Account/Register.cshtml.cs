@@ -24,7 +24,7 @@ namespace GameHub.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
+        
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
@@ -51,7 +51,7 @@ namespace GameHub.Areas.Identity.Pages.Account
 
         public List<SelectListItem> Roles { get; }
 
-        public class InputModel
+public class InputModel
         {
             [Required][Display(Name = "Korisničko ime")] 
             public string Username { get; set; }
