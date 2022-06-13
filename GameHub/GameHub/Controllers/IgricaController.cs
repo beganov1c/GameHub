@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameHub.Data;
 using GameHub.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameHub.Controllers
 {
@@ -20,9 +21,17 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string imeIgrice)
         {
-            return View(await _context.Igrica.ToListAsync());
+            var igrica = from m in _context.Igrica
+                         select m;
+
+            if (!String.IsNullOrEmpty(imeIgrice))
+            {
+                igrica = igrica.Where(s => s.Naziv.Contains(imeIgrice));
+            }
+
+            return View(await igrica.ToListAsync());
         }
 
         // GET: Igrica/Details/5
@@ -44,6 +53,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +76,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +128,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
