@@ -1,0 +1,72 @@
+﻿@model IEnumerable<GameHub.Models.Igrica>
+
+@{
+    ViewData["Title"] = "Top 10 lista";
+}
+
+<h1>Top 10 lista</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rang
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slika)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                Srednja ocjena
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zanr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RRated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@for(int i=1; i<11; i++) {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                <img src="@Url.Content(Model.ElementAt(i-1).Slika)" alt="cover" width="150" height="200" />
+            </td>
+            <td>
+                <font size="5">@Html.DisplayFor(modelItem => Model.ElementAt(i-1).Naziv)</font>
+            </td>
+            <td>
+                <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="20" height="20" style="margin-bottom:10px"/>
+                <font size="5">@Html.DisplayFor(modelItem => Model.ElementAt(i-1).SrednjaOcjena)</font>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i-1).Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i-1).Zanr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ElementAt(i-1).RRated)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model.ElementAt(i-1).Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@Model.ElementAt(i-1).Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@Model.ElementAt(i-1).Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
