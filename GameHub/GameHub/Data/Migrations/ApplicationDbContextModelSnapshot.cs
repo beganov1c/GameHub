@@ -38,6 +38,9 @@ namespace GameHub.Data.Migrations
                     b.Property<bool>("RRated")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("SrednjaOcjena")
                         .HasColumnType("float");
 
