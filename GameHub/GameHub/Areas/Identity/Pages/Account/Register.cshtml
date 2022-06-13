@@ -42,6 +42,13 @@
                 <input asp-for="Input.Opis" class="form-control" />
                 <span asp-validation-for="Input.Opis" class="text-danger"></span>
             </div>
+             <div class="form-group">
+                <select asp-for="Input.UserRole"
+                        asp-items="@(Model.Roles)">
+                    <option>Izaberite svoju ulogu</option>
+                </select>
+                <span asp-validation-for="Input.UserRole" class="text-danger"></span>
+            </div>
             <div class="form-group" style="padding-top:10px">
                 <label asp-for="Input.Slika" class="control-label"></label>
                 <input asp-for="Input.Slika" class="form-control"/>

@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GameHub.Areas.Identity.Pages.Account
 {
@@ -35,6 +36,11 @@ namespace GameHub.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            Roles = new List<SelectListItem>
+            {
+                new SelectListItem {Value = "Gamer", Text ="Gamer"},
+                new SelectListItem {Value = "Developer", Text = "Developer"},
+            };
         }
 
         [BindProperty]
@@ -71,6 +77,8 @@ public class InputModel
             [Display(Name = "Opis(neobavezno)")]
             public String Opis { get; set; }
 
+            [Required]
+            [Display(Name = "UserRole")]
             public string UserRole { get; set; }
 
 
