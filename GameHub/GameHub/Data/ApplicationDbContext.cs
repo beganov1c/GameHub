@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GameHub.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -26,6 +26,18 @@ namespace GameHub.Data
             modelBuilder.Entity<KomentarIgrica>().ToTable("KomentarIgrica");
             modelBuilder.Entity<KomentarObjava>().ToTable("KomentarObjava");
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(e => e.BirthDate)
+                .HasMaxLength(250);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(e => e.Opis)
+                .HasMaxLength(250);
+
+            modelBuilder.Entity<ApplicationUser>()
+               .Property(e => e.Slika)
+               .HasMaxLength(250);
         }
     }
 }
