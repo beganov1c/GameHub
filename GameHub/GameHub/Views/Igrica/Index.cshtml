@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Naziv)
+                Slika
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Opis)
+                @Html.DisplayNameFor(model => model.Naziv)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SrednjaOcjena)
@@ -37,10 +37,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
+                <img src="../Images/Cover/eFootball.jpg" alt="cover" width="200" height="350"/>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Opis)
+                @Html.DisplayFor(modelItem => item.Naziv)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SrednjaOcjena)
