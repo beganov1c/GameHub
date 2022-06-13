@@ -1,0 +1,40 @@
+﻿@model GameHub.Models.Igrica
+
+@{
+    ViewData["Title"] = "Komentiraj - " + Model.Naziv;
+}
+
+
+<h1>Komentiraj - @Model.Naziv</h1>
+
+<div>
+    <h4>Igrica</h4>
+    <hr />
+
+    <div class="detail-container">
+
+        <div class="detail-child">
+            <dl class="cover">
+                <dt>
+                    <img src="@Url.Content(Model.Slika)" alt="cover" width="350" height="450" />
+                </dt>
+            </dl>
+        </div>
+
+    <div class="detail-child">
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    <font size="4">Komentar:<br /></font>
+                </dt>
+                <dt class = "col-sm-2">
+                     <font size="4">Ocjena:<br /></font>  
+                 </dt>
+            </dl>
+            <div class = "form-group">
+                 <a asp-action="Details" asp-route-id="@Model.Id"><input type="submit" class="btn btn-danger" value="Objavi"></a>
+                 <a asp-action="Details" asp-route-id="@Model.Id"><input type="submit" class="btn btn-danger" value="Odustani"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
