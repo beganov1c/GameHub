@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameHub.Data;
 using GameHub.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace GameHub.Controllers
-
 {
     public class IgricaController : Controller
     {
@@ -22,17 +20,9 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica
-        public async Task<IActionResult> Index(string imeIgrice)
+        public async Task<IActionResult> Index()
         {
-            var igrica = from m in _context.Igrica
-                         select m;
-
-            if (!String.IsNullOrEmpty(imeIgrice))
-            {
-                igrica = igrica.Where(s => s.Naziv.Contains(imeIgrice));
-            }
-
-            return View(await igrica.ToListAsync());
+            return View(await _context.Igrica.ToListAsync());
         }
 
         // GET: Igrica/Details/5
@@ -52,7 +42,7 @@ namespace GameHub.Controllers
 
             return View(igrica);
         }
-        [Authorize]
+
         // GET: Igrica/Create
         public IActionResult Create()
         {
@@ -64,7 +54,7 @@ namespace GameHub.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Naziv,Opis,SrednjaOcjena,Autor,Zanr,RRated")] Igrica igrica)
+        public async Task<IActionResult> Create([Bind("Id,Naziv,Opis,SrednjaOcjena,Autor,Zanr,RRated,Slika")] Igrica igrica)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +64,7 @@ namespace GameHub.Controllers
             }
             return View(igrica);
         }
-        [Authorize]
+
         // GET: Igrica/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -96,7 +86,7 @@ namespace GameHub.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,Opis,SrednjaOcjena,Autor,Zanr,RRated")] Igrica igrica)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,Opis,SrednjaOcjena,Autor,Zanr,RRated,Slika")] Igrica igrica)
         {
             if (id != igrica.Id)
             {
@@ -125,7 +115,7 @@ namespace GameHub.Controllers
             }
             return View(igrica);
         }
-        [Authorize]
+
         // GET: Igrica/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                Slika
+                @Html.DisplayNameFor(model => model.Slika)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Naziv)
@@ -37,7 +37,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <img src="../Images/Cover/eFootball.jpg" alt="cover" width="200" height="350"/>
+                <img src="@Url.Content(item.Slika)" alt="cover" width="250" height="350" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Naziv)

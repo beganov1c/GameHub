@@ -6,45 +6,45 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Images\Cover\Among Us.jpg" />
-    <Content Include="Images\Cover\Angry Birds.png" />
-    <Content Include="Images\Cover\Apex Legends.jpg" />
-    <Content Include="Images\Cover\ARK Survival Evolved.jpg" />
-    <Content Include="Images\Cover\Assassin%27s Creed Valhalla.png" />
-    <Content Include="Images\Cover\Battlefield 2042.jpg" />
-    <Content Include="Images\Cover\Call Of Duty Warzone.jpg" />
-    <Content Include="Images\Cover\Counter Strike Global Offensive.jpg" />
-    <Content Include="Images\Cover\Cyberpunk 2077.jpg" />
-    <Content Include="Images\Cover\Dark Souls.jpg" />
-    <Content Include="Images\Cover\Dota 2.jpg" />
-    <Content Include="Images\Cover\eFootball.jpg" />
-    <Content Include="Images\Cover\Elden Ring.jpg" />
-    <Content Include="Images\Cover\Euro Truck Simulator 2.jpg" />
-    <Content Include="Images\Cover\Fall Guys Ultimate Knockout.jpg" />
-    <Content Include="Images\Cover\Far Cry 6.png" />
-    <Content Include="Images\Cover\FIFA 22.jpeg" />
-    <Content Include="Images\Cover\Fortnite.jpg" />
-    <Content Include="Images\Cover\Forza Horizon 5.jpg" />
-    <Content Include="Images\Cover\God Of War.jpg" />
-    <Content Include="Images\Cover\Grand Theft Auto V.jpg" />
-    <Content Include="Images\Cover\Half-Life 2.jpg" />
-    <Content Include="Images\Cover\League of Legends.jpg" />
-    <Content Include="Images\Cover\Minecraft.png" />
-    <Content Include="Images\Cover\Mortal Kombat 11.png" />
-    <Content Include="Images\Cover\NBA 2K22.jpg" />
-    <Content Include="Images\Cover\Need For Speed Heat.jpg" />
-    <Content Include="Images\Cover\Outlast.jpg" />
-    <Content Include="Images\Cover\Overwatch.jpg" />
-    <Content Include="Images\Cover\Pokemon.png" />
-    <Content Include="Images\Cover\PUBG Batllegrounds.jpg" />
-    <Content Include="Images\Cover\Red Dead Redemption 2.jpg" />
-    <Content Include="Images\Cover\Resident Evil Village.png" />
-    <Content Include="Images\Cover\Rocket League.jpg" />
-    <Content Include="Images\Cover\Super Mario Bros.png" />
-    <Content Include="Images\Cover\The Last Of Us.jpg" />
-    <Content Include="Images\Cover\The Witcher.jpg" />
-    <Content Include="Images\Cover\Valorant.jpg" />
-    <Content Include="Images\Cover\Watch Dogs.jpg" />
+    <None Include="wwwroot\img\Cover\Among Us.jpg" />
+    <None Include="wwwroot\img\Cover\Angry Birds.png" />
+    <None Include="wwwroot\img\Cover\Apex Legends.jpg" />
+    <None Include="wwwroot\img\Cover\ARK Survival Evolved.jpg" />
+    <None Include="wwwroot\img\Cover\Assassins Creed Valhalla.png" />
+    <None Include="wwwroot\img\Cover\Battlefield 2042.jpg" />
+    <None Include="wwwroot\img\Cover\Call Of Duty Warzone.jpg" />
+    <None Include="wwwroot\img\Cover\Counter Strike Global Offensive.jpg" />
+    <None Include="wwwroot\img\Cover\Cyberpunk 2077.jpg" />
+    <None Include="wwwroot\img\Cover\Dark Souls.jpg" />
+    <None Include="wwwroot\img\Cover\Dota 2.jpg" />
+    <None Include="wwwroot\img\Cover\eFootball.jpg" />
+    <None Include="wwwroot\img\Cover\Elden Ring.jpg" />
+    <None Include="wwwroot\img\Cover\Euro Truck Simulator 2.jpg" />
+    <None Include="wwwroot\img\Cover\Fall Guys Ultimate Knockout.jpg" />
+    <None Include="wwwroot\img\Cover\Far Cry 6.png" />
+    <None Include="wwwroot\img\Cover\FIFA 22.jpeg" />
+    <None Include="wwwroot\img\Cover\Fortnite.jpg" />
+    <None Include="wwwroot\img\Cover\Forza Horizon 5.jpg" />
+    <None Include="wwwroot\img\Cover\God Of War.jpg" />
+    <None Include="wwwroot\img\Cover\Grand Theft Auto V.jpg" />
+    <None Include="wwwroot\img\Cover\Half-Life 2.jpg" />
+    <None Include="wwwroot\img\Cover\League of Legends.jpg" />
+    <None Include="wwwroot\img\Cover\Minecraft.png" />
+    <None Include="wwwroot\img\Cover\Mortal Kombat 11.png" />
+    <None Include="wwwroot\img\Cover\NBA 2K22.jpg" />
+    <None Include="wwwroot\img\Cover\Need For Speed Heat.jpg" />
+    <None Include="wwwroot\img\Cover\Outlast.jpg" />
+    <None Include="wwwroot\img\Cover\Overwatch.jpg" />
+    <None Include="wwwroot\img\Cover\Pokemon.png" />
+    <None Include="wwwroot\img\Cover\PUBG Batllegrounds.jpg" />
+    <None Include="wwwroot\img\Cover\Red Dead Redemption 2.jpg" />
+    <None Include="wwwroot\img\Cover\Resident Evil Village.png" />
+    <None Include="wwwroot\img\Cover\Rocket League.jpg" />
+    <None Include="wwwroot\img\Cover\Super Mario Bros.png" />
+    <None Include="wwwroot\img\Cover\The Last Of Us.jpg" />
+    <None Include="wwwroot\img\Cover\The Witcher.jpg" />
+    <None Include="wwwroot\img\Cover\Valorant.jpg" />
+    <None Include="wwwroot\img\Cover\Watch Dogs.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,6 +57,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\img\Cover\eFootball.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

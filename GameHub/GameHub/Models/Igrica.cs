@@ -13,7 +13,7 @@ namespace GameHub.Models
         [EnumDataType(typeof(Zanr))]
         public Zanr Zanr { get; set; }
         public bool RRated { get; set; }
-
+        public string Slika { get; set; }
         public Igrica() { }
     }
 }

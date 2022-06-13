@@ -18,14 +18,24 @@
                 <span asp-validation-for="Naziv" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Zanr" class="control-label"></label>
-                <select asp-for="Zanr" class="form-control" asp-items="Html.GetEnumSelectList<Zanr>()"></select>
-                <span asp-validation-for="Zanr" class="text-danger"></span>
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
-                <textarea asp-for="Opis" type="text" class="form-control" rows="5" id="MessageInputField" autofocus></textarea>
-                <span asp-validation-for="Opis" class="text-danger"></span>
+                <label asp-for="SrednjaOcjena" class="control-label"></label>
+                <input asp-for="SrednjaOcjena" class="form-control" />
+                <span asp-validation-for="SrednjaOcjena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor" class="control-label"></label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zanr" class="control-label"></label>
+                <select asp-for="Zanr" class="form-control"></select>
+                <span asp-validation-for="Zanr" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -33,7 +43,12 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Dodaj" class="btn btn-danger" />
+                <label asp-for="Slika" class="control-label"></label>
+                <input asp-for="Slika" class="form-control" />
+                <span asp-validation-for="Slika" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
