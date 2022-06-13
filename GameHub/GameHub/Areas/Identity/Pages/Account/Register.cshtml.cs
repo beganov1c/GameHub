@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GameHub.Areas.Identity.Pages.Account
 {
@@ -24,7 +25,7 @@ namespace GameHub.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
+        
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
@@ -35,6 +36,11 @@ namespace GameHub.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            Roles = new List<SelectListItem>
+            {
+                new SelectListItem {Value = "Gamer", Text ="Gamer"},
+                new SelectListItem {Value = "Developer", Text = "Developer"},
+            };
         }
 
         [BindProperty]
@@ -44,7 +50,9 @@ namespace GameHub.Areas.Identity.Pages.Account
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-        public class InputModel
+        public List<SelectListItem> Roles { get; }
+
+public class InputModel
         {
             [Required]
             [Display(Name = "Korisničko ime")]
@@ -69,6 +77,8 @@ namespace GameHub.Areas.Identity.Pages.Account
             [Display(Name = "Opis(neobavezno)")]
             public String Opis { get; set; }
 
+            [Required]
+            [Display(Name = "UserRole")]
             public string UserRole { get; set; }
 
 
