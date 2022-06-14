@@ -8,7 +8,8 @@
     ViewData["Title"] = "Komentar vec postoji";
 }
 
-<h1>Vas komentar vec postoji</h1>
+<h1>Vaš komentar za ovu igricu vec postoji</h1>
+<h3>Mozete urediti Vaš stari komentar</h3>
 
 
-<a asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Pogledaj sve komentare</a>
+<a asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Pogledaj sve moje komentare igrica</a>

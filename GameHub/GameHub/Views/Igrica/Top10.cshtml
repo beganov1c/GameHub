@@ -1,4 +1,8 @@
-﻿@model IEnumerable<GameHub.Models.Igrica>
+﻿@using GameHub.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model IEnumerable<GameHub.Models.Igrica>
 
 @{
     ViewData["Title"] = "Top 10 lista";
@@ -60,9 +64,10 @@
                 @Html.DisplayFor(modelItem => Model.ElementAt(i-1).RRated)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@Model.ElementAt(i-1).Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@Model.ElementAt(i-1).Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@Model.ElementAt(i-1).Id">Delete</a>
+                @if(SignInManager.IsSignedIn(User)) {
+                 <a asp-controller="KomentarIgrica" asp-action="Create" asp-route-id="@Model.ElementAt(i-1).Id">Komentiraj</a> 
+                }
+                <a asp-action="Details" asp-route-id="@Model.ElementAt(i-1).Id">Details</a> 
             </td>
         </tr>
 }
