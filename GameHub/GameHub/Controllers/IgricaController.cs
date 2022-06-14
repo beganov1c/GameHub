@@ -53,24 +53,25 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Komentiraj/5
-        public async Task<IActionResult> Komentiraj(int? id)
+        public IActionResult Komentiraj(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var igrica = await _context.Igrica
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (igrica == null)
-            {
-                return NotFound();
-            }
-           
-         
-            return View(igrica);
+            var model = new KomentarIgrica();
+            model.IgricaId = (int) id;
+            return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Komentiraj([Bind("Id,Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.KomentarIgrica.Add(komentarIgrica);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(komentarIgrica);
+        }
         // GET: Igrica/Create
         [Authorize]
         public IActionResult Create()

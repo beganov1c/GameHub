@@ -1,40 +1,43 @@
-﻿@model GameHub.Models.Igrica
+﻿@model GameHub.Models.KomentarIgrica
 
 @{
-    ViewData["Title"] = "Komentiraj - " + Model.Naziv;
+    ViewData["Title"] = "Create";
 }
 
+<h1>Create</h1>
 
-<h1>Komentiraj - @Model.Naziv</h1>
-
-<div>
-    <h4>Igrica</h4>
-    <hr />
-
-    <div class="detail-container">
-
-        <div class="detail-child">
-            <dl class="cover">
-                <dt>
-                    <img src="@Url.Content(Model.Slika)" alt="cover" width="350" height="450" />
-                </dt>
-            </dl>
-        </div>
-
-    <div class="detail-child">
-            <dl class="row">
-                <dt class = "col-sm-2">
-                    <font size="4">Komentar:<br /></font>
-                </dt>
-                <dt class = "col-sm-2">
-                     <font size="4">Ocjena:<br /></font>  
-                 </dt>
-            </dl>
-            <div class = "form-group">
-                 <a asp-action="Details" asp-route-id="@Model.Id"><input type="submit" class="btn btn-danger" value="Objavi"></a>
-                 <a asp-action="Details" asp-route-id="@Model.Id"><input type="submit" class="btn btn-danger" value="Odustani"></a>
+<h4>KomentarIgrica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tekst" class="control-label"></label>
+                <input asp-for="Tekst" class="form-control" />
+                <span asp-validation-for="Tekst" class="text-danger"></span>
             </div>
-        </div>
+            <div class="form-group">
+                <label asp-for="Ocjena" class="control-label"></label>
+                <input asp-for="Ocjena" class="form-control" />
+                <span asp-validation-for="Ocjena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IgricaId" class="control-label"></label>
+                <input asp-for="IgricaId" class="form-control" readonly />
+                <span asp-validation-for="IgricaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

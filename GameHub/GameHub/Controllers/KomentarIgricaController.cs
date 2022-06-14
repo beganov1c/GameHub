@@ -44,11 +44,13 @@ namespace GameHub.Controllers
         }
 
         // GET: KomentarIgrica/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            return View();
+            var model = new KomentarIgrica();
+            model.IgricaId = (int)id;
+            return View(model);
         }
-
+        
         // POST: KomentarIgrica/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
