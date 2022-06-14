@@ -56,7 +56,7 @@ namespace GameHub.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
+        public async Task<IActionResult> Create([Bind("Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
         {
             if (ModelState.IsValid)
             {
