@@ -1,0 +1,54 @@
+﻿@using GameHub.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Moj profil";
+}
+
+<h1>Moj profil</h1>
+
+<div>
+    <h4>Korisnik</h4>
+    <hr />
+
+    <div class="detail-container">
+
+        <div class="detail-child">
+            <dl class="cover">
+                <dt>
+                    <img src="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Slika" alt="user" width="300" height="300" style="margin-left:20px; border-radius: 50%; border:solid 2px; border-color: white;"/>
+                </dt>
+            </dl>
+        </div>
+
+        <div class="detail-child">
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    <font size="4"">Korisničko ime:</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <font size="5" style="margin-left: 20px;">@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).UserName</font>
+                </dd>
+                <dt class = "col-sm-2">
+                     <font size="4">Opis:</font>
+                </dt>
+                <dd class = "col-sm-10">
+                     <font size="4" style="margin-left: 20px;">@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Opis</font>
+                </dd>
+                <dt class = "col-sm-2">
+                    <font size="4">Rođen:</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    <font size="4" style="margin-left: 20px;">@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).BirthDate</font>
+                </dd>
+                <form width="200" style="margin-top: 50px;">
+                     <input type="button" value="Lista igrica" class = "guestButton"/>
+                     <input type="button" value="Postavke" class = "guestButton"/>
+                </form>
+            </dl>
+        </div>
+
+    </div>
+</div>
