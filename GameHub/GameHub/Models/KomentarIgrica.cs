@@ -12,6 +12,9 @@ namespace GameHub.Models
         [ForeignKey("Igrica")]
         public int IgricaId { get; set; }
 
+        [ForeignKey("AspNetUsers")]
+        public string KorisnikId { get; set; }
+
         public KomentarIgrica() { }
     }
 }

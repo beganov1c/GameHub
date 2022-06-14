@@ -1,4 +1,8 @@
-﻿@model GameHub.Models.KomentarIgrica
+﻿@using GameHub.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model GameHub.Models.KomentarIgrica
 
 @{
     ViewData["Title"] = "Create";
@@ -24,11 +28,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="IgricaId" class="control-label"></label>
-                <input asp-for="IgricaId" class="form-control" readonly />
+                <input asp-for="IgricaId" class="form-control" readonly/>
                 <span asp-validation-for="IgricaId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="KorisnikId" class="control-label"></label>
+                <input asp-for="KorisnikId" value="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id" class="form-control" readonly />
+                <span asp-validation-for="KorisnikId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="padding-top:10px">
+                <input type="submit" value="Kreiraj komentar" class="btn btn-danger" />
             </div>
         </form>
     </div>

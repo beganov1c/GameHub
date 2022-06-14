@@ -19,6 +19,15 @@ namespace GameHub.Controllers
             _context = context;
         }
 
+
+        // GET: KomentarIgrica/KomentariIgrica
+        public async Task<IActionResult> KomentariIgrica()
+        {
+            var igrice = await _context.KomentarIgrica.ToListAsync();
+            return View(igrice);
+        }
+
+
         // GET: KomentarIgrica
         public async Task<IActionResult> Index()
         {
@@ -50,19 +59,19 @@ namespace GameHub.Controllers
             model.IgricaId = (int)id;
             return View(model);
         }
-        
+
         // POST: KomentarIgrica/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
+        public async Task<IActionResult> Create([Bind("Tekst,Ocjena,IgricaId,KorisnikId")] KomentarIgrica komentarIgrica)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(komentarIgrica);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("KomentariIgrica");
             }
             return View(komentarIgrica);
         }
@@ -88,7 +97,7 @@ namespace GameHub.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Tekst,Ocjena,IgricaId,KorisnikId")] KomentarIgrica komentarIgrica)
         {
             if (id != komentarIgrica.Id)
             {
@@ -115,7 +124,7 @@ namespace GameHub.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(komentarIgrica);
+            return RedirectToAction("KomentariIgrica");
         }
 
         // GET: KomentarIgrica/Delete/5

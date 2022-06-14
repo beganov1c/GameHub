@@ -25,11 +25,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="IgricaId" class="control-label"></label>
-                <input asp-for="IgricaId" class="form-control" />
+                <input asp-for="IgricaId" class="form-control" readonly/>
                 <span asp-validation-for="IgricaId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="KorisnikId" class="control-label"></label>
+                <input asp-for="KorisnikId" class="form-control" readonly />
+                <span asp-validation-for="KorisnikId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="padding-top:10px">
+                <input type="submit" value="Sačuvaj" class="btn btn-danger" />
             </div>
         </form>
     </div>
