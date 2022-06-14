@@ -27,6 +27,11 @@ namespace GameHub.Controllers
             return View(igrice);
         }
 
+        public async Task<IActionResult> KomentarVecPostoji()
+        {
+            return View();
+        }
+
 
         // GET: KomentarIgrica
         public async Task<IActionResult> Index()
@@ -69,6 +74,13 @@ namespace GameHub.Controllers
         {
             if (ModelState.IsValid)
             {
+                var igrice = await _context.KomentarIgrica.ToListAsync();
+                if(igrice.Find(igrice => igrice.KorisnikId == komentarIgrica.KorisnikId && igrice.IgricaId == komentarIgrica.IgricaId) !=null)
+                {
+                    return RedirectToAction("KomentarVecPostoji");
+                }
+
+
                 _context.Add(komentarIgrica);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("KomentariIgrica");
