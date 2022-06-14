@@ -14,6 +14,7 @@ namespace GameHub.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+
         public KomentarIgricaController(ApplicationDbContext context)
         {
             _context = context;
@@ -29,7 +30,7 @@ namespace GameHub.Controllers
 
         public async Task<IActionResult> KomentarVecPostoji()
         {
-            return View();
+            return View(await _context.KomentarIgrica.ToListAsync());
         }
 
 
@@ -134,9 +135,9 @@ namespace GameHub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("KomentariIgrica");
             }
-            return RedirectToAction("KomentariIgrica");
+            return View(komentarIgrica);
         }
 
         // GET: KomentarIgrica/Delete/5
@@ -155,6 +156,14 @@ namespace GameHub.Controllers
             }
 
             return View(komentarIgrica);
+        }
+
+        public async Task<IActionResult> KomentariKorisnika(string id)
+        {
+            var igrica = await _context.KomentarIgrica.ToListAsync();
+            igrica.RemoveAll(igric => igric.KorisnikId!=id);
+            
+            return View(igrica);
         }
 
         // POST: KomentarIgrica/Delete/5

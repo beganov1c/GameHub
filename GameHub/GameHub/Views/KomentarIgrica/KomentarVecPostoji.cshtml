@@ -1,5 +1,14 @@
-﻿@{
+﻿@using GameHub.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model IEnumerable<GameHub.Models.KomentarIgrica>
+
+@{
     ViewData["Title"] = "Komentar vec postoji";
 }
 
 <h1>Vas komentar vec postoji</h1>
+
+
+<a asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Pogledaj sve komentare</a>
