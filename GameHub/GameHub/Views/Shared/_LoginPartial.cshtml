@@ -8,7 +8,7 @@
 
 {  
     <li class="nav-item" style="margin-right:25px">
-        <img width=50 height=50 src='data:image/png;base64,@SignInManager.UserManager.Users.First(user => user.Email==User.Identity.Name).Slika'/>
+        <img width=50 height=50 src='@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Slika'/>
     </li>
     <li class="nav-item" style="margin-right:25px">
        <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index">Pozdrav @User.Identity.Name!</a>
