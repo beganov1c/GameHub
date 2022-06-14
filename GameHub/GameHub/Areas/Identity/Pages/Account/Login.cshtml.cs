@@ -44,7 +44,7 @@ namespace GameHub.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [Display(Name = "Korisničko ime")]
             public string Email { get; set; }
 
             [Required]
