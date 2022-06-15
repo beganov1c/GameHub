@@ -23,7 +23,10 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a asp-controller="Igrica" asp-action="Create"><input type="button" value="Objavi igricu" class = "guestButton"/></a>
+                @if (User.IsInRole("Developer, GamingKompanija"))
+                {
+                    <a asp-controller="Igrica" asp-action="Create"><input type="button" value="Objavi igricu" class = "guestButton"/></a>
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between " style="margin-left:50px">
                     
                     <form asp-controller="Igrica" asp-action="Index" method="get">
