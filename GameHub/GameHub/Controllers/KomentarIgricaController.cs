@@ -165,8 +165,10 @@ namespace GameHub.Controllers
         {
             var igrica = await _context.KomentarIgrica.ToListAsync();
             igrica.RemoveAll(igric => igric.KorisnikId!=id);
+            var igrice = await _context.Igrica.ToListAsync();
+            Tuple<List<KomentarIgrica>, List<Igrica>> tuple= new Tuple<List<KomentarIgrica>, List<Igrica>>(igrica,igrice);
             
-            return View(igrica);
+            return View(tuple);
         }
 
         // POST: KomentarIgrica/Delete/5

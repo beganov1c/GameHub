@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Ocjena)
             </th>
+            <th>
+                Korisnik
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -34,12 +37,16 @@
                     <font size="5">@Html.DisplayFor(modelItem => item.Ocjena) </font>
                 </td>
                 <td>
+                    
+                    <font size="5">@SignInManager.UserManager.FindByIdAsync(item.KorisnikId).Result.UserName </font>
+                </td>
+                <td>
                     @if (@SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Id == item.KorisnikId) {
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     }
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-        </td>
+                </td>
     </tr>
     }
    }
