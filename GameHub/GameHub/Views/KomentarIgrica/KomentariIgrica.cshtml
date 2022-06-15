@@ -27,28 +27,27 @@
     </thead>
     <tbody>
     @foreach (var item in Model) {
-            @if (Model.Last().IgricaId==item.IgricaId) {
-                <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tekst)
-                </td>
-                <td>
-                    <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
-                    <font size="5">@Html.DisplayFor(modelItem => item.Ocjena) </font>
-                </td>
-                <td>
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tekst)
+            </td>
+            <td>
+                <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
+                <font size="5">@Html.DisplayFor(modelItem => item.Ocjena) </font>
+            </td>
+            <td>
                     
-                    <font size="5">@SignInManager.UserManager.FindByIdAsync(item.KorisnikId).Result.UserName </font>
-                </td>
-                <td>
-                    @if (SignInManager.IsSignedIn(User) && SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Id == item.KorisnikId) {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> 
-                        <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
-                    }
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> 
+                <font size="5">@SignInManager.UserManager.FindByIdAsync(item.KorisnikId).Result.UserName </font>
+            </td>
+            <td>
+                @if (SignInManager.IsSignedIn(User) && SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Id == item.KorisnikId) {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                }
+                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> 
         </td>
     </tr>
-    }
+    
    }
     </tbody>
 </table>

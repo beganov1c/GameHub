@@ -22,9 +22,10 @@ namespace GameHub.Controllers
 
 
         // GET: KomentarIgrica/KomentariIgrica
-        public async Task<IActionResult> KomentariIgrica()
+        public async Task<IActionResult> KomentariIgrica(int ?id)
         {
             var igrice = await _context.KomentarIgrica.ToListAsync();
+            igrice.RemoveAll(komentar => komentar.IgricaId != id);
             return View(igrice);
         }
 
@@ -84,7 +85,7 @@ namespace GameHub.Controllers
 
                 _context.Add(komentarIgrica);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("KomentariIgrica");
+                return RedirectToAction("KomentariIgrica", new {id=komentarIgrica.IgricaId});
             }
             return View(komentarIgrica);
         }
