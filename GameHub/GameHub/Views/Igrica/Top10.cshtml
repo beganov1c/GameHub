@@ -35,6 +35,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.RRated)
             </th>
+            <th>
+                Link za komentare
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -62,6 +65,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Model.ElementAt(i-1).RRated)
+            </td>
+            <td>
+               <a asp-controller="KomentarIgrica" asp-action="KomentariIgrica" asp-route-id="@Model.ElementAt(i-1).Id">Pogledaj komentare</a> 
             </td>
             <td>
                 @if(SignInManager.IsSignedIn(User)) {

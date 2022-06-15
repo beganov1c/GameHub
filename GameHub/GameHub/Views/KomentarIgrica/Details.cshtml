@@ -1,4 +1,8 @@
-﻿@model GameHub.Models.KomentarIgrica
+﻿@using GameHub.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model GameHub.Models.KomentarIgrica
 
 @{
     ViewData["Title"] = "Detalji";
@@ -41,6 +45,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Uredi</a> |
+    @if (SignInManager.IsSignedIn(User) && SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Id == Model.KorisnikId) {
+     <a asp-action="Edit" asp-route-id="@Model.Id">Uredi</a>
+    }
     <a asp-action="Index">Nazad</a>
 </div>
