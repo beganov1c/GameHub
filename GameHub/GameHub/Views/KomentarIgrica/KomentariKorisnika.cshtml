@@ -5,11 +5,59 @@
 @model Tuple<List<KomentarIgrica>, List<Igrica>>
 
 @{
-    ViewData["Title"] = "Moji komentari";
+    if(User.IsInRole("Developer") || User.IsInRole("GamingKompanija")) ViewData["Title"] = "Moje igrice";
+    else ViewData["Title"] = "Moji komentari";
 }
-
-<h1>Moji komentari</h1>
-
+@if(User.IsInRole("Developer") || User.IsInRole("GamingKompanija")) {
+<h1>Moje igrice</h1>
+}
+else {
+    <h1>Moji komentari</h1>
+}
+@if(User.IsInRole("Developer") || User.IsInRole("GamingKompanija"))
+{
+    <h3>Pošto je Vama omogućena objava igrica, imate zabranu komentarisanja.</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Slika
+                </th>
+                <th>
+                    Ime igrice
+                </th>
+                <th>
+                    Srednja ocjena
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Item2) {
+         @if (@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).UserName==item.Autor) {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.Slika)" alt="cover" width="150" height="200" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
+                    <font size="5">@Html.DisplayFor(modelItem => item.SrednjaOcjena) </font>
+                </td>
+                <td>
+                    <a asp-controller="Igrica" asp-action="Edit" asp-route-id="@item.Id">Uredi</a> 
+                    <a asp-controller="Igrica"  asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> 
+                </td>
+            </tr>
+            }
+    }
+        </tbody>
+    </table>
+}
+else {
 <table class="table">
     <thead>
         <tr>
@@ -49,3 +97,4 @@
 }
     </tbody>
 </table>
+}

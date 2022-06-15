@@ -14,8 +14,14 @@
     <hr />
 
     <a class="guestButton" asp-area="Identity" asp-page="/Account/Manage/Index">Postavke</a>
-    <a class="guestButton" asp-controller="KomentarIgrica" asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Moji komentari</a>
-    
+    @if (User.IsInRole("Gamer"))
+    {
+        <a class="guestButton" asp-controller="KomentarIgrica" asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Moji komentari</a>
+    }
+    else
+    {
+      <a class="guestButton" asp-controller="KomentarIgrica" asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Moje igrice</a>
+    }
     <div class="detail-container">
 
         @if (SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Slika != null)
