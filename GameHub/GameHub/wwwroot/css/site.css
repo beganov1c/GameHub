@@ -128,4 +128,13 @@ form {
     width: 40%;
     float: left;
     padding: 10px;
-} 
+}
+
+.comment-text {
+    background: linear-gradient(to bottom, #dedad9 5%, #ffffff 100%);
+    border-radius: 28px;
+    border: 1px solid #000000;
+    font-family: Arial;
+    font-size: 17px;
+    margin-top: 5px;
+}

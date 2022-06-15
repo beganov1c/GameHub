@@ -19,12 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Ocjena)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IgricaId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KorisnikId)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,13 +29,8 @@
                 @Html.DisplayFor(modelItem => item.Tekst)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ocjena)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IgricaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KorisnikId)
+                <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
+                <font size="5">@Html.DisplayFor(modelItem => item.Ocjena) </font>
             </td>
             <td>
                 @if (@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id==item.KorisnikId) {
