@@ -1,13 +1,12 @@
-﻿using System;
+﻿using GameHub.Data;
+using GameHub.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using GameHub.Data;
-using GameHub.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace GameHub.Controllers
 {
@@ -77,7 +76,7 @@ namespace GameHub.Controllers
             if (ModelState.IsValid)
             {
                 var igrice = await _context.KomentarIgrica.ToListAsync();
-                if(igrice.Find(igrice => igrice.KorisnikId == komentarIgrica.KorisnikId && igrice.IgricaId == komentarIgrica.IgricaId) !=null)
+                if (igrice.Find(igrice => igrice.KorisnikId == komentarIgrica.KorisnikId && igrice.IgricaId == komentarIgrica.IgricaId) != null)
                 {
                     return RedirectToAction("KomentarVecPostoji");
                 }
@@ -164,10 +163,10 @@ namespace GameHub.Controllers
         public async Task<IActionResult> KomentariKorisnika(string id)
         {
             var igrica = await _context.KomentarIgrica.ToListAsync();
-            igrica.RemoveAll(igric => igric.KorisnikId!=id);
+            igrica.RemoveAll(igric => igric.KorisnikId != id);
             var igrice = await _context.Igrica.ToListAsync();
-            Tuple<List<KomentarIgrica>, List<Igrica>> tuple= new Tuple<List<KomentarIgrica>, List<Igrica>>(igrica,igrice);
-            
+            Tuple<List<KomentarIgrica>, List<Igrica>> tuple = new Tuple<List<KomentarIgrica>, List<Igrica>>(igrica, igrice);
+
             return View(tuple);
         }
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace GameHub.Models
 {
     public class ErrorViewModel
