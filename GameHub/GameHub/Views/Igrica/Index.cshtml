@@ -9,10 +9,12 @@
 }
 
 <h1>Pregled igrica</h1>
-
-<p>
-    <a asp-action="Create">Kreiraj novu igricu</a>
-</p>
+@if (User.IsInRole("Developer, GamingKompanija"))
+{
+    <p>
+        <a asp-action="Create">Kreiraj novu igricu</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -60,10 +62,11 @@
                 @Html.DisplayFor(modelItem => item.RRated)
             </td>
             <td>
-                @if(SignInManager.IsSignedIn(User)) {
+                @if(User.IsInRole("Gamer")) 
+                {
                   <a asp-controller="KomentarIgrica" asp-action="Create" asp-route-id="@item.Id">Komentiraj</a> 
-              }
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                }
+                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> 
             </td>
         </tr>
 }
