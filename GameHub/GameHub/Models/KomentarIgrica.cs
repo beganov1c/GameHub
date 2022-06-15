@@ -8,7 +8,7 @@ namespace GameHub.Models
         [Key]
         public int Id { get; set; }
         public string Tekst { get; set; }
-        [Range(0,10)]
+        [Range(0, 10)]
         public int Ocjena { get; set; }
         [ForeignKey("Igrica")]
         public int IgricaId { get; set; }

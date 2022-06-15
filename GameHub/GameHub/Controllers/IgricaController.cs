@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using GameHub.Data;
+﻿using GameHub.Data;
 using GameHub.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace GameHub.Controllers
 {
@@ -53,9 +51,9 @@ namespace GameHub.Controllers
         }
 
 
-       
+
         // GET: Igrica/Create
-        [Authorize(Roles ="GamingKompanija, Developer")]
+        [Authorize(Roles = "GamingKompanija, Developer")]
         public IActionResult Create()
         {
             return View();
@@ -78,7 +76,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Edit/5
-        [Authorize(Roles ="GamingKompanija, Developer")]
+        [Authorize(Roles = "GamingKompanija, Developer")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -130,7 +128,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Delete/5
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
