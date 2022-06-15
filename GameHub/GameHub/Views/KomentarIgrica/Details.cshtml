@@ -48,5 +48,5 @@
     @if (SignInManager.IsSignedIn(User) && SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Id == Model.KorisnikId) {
      <a asp-action="Edit" asp-route-id="@Model.Id">Uredi</a>
     }
-    <a asp-action="Index">Nazad</a>
+    <a asp-action="KomentariIgrica" asp-route-id="@Model.IgricaId">Nazad</a>
 </div>
