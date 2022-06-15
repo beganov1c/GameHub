@@ -4,34 +4,38 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalji</h1>
 
 <div>
-    <h4>KomentarIgrica</h4>
+    <h4>Komentar</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tekst)
+            <font size="4">@Html.DisplayNameFor(model => model.Tekst)</font>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "comment-text">
             @Html.DisplayFor(model => model.Tekst)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ocjena)
+            <br />
+            <font size="4">@Html.DisplayNameFor(model => model.Ocjena)</font>
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ocjena)
+            <br />
+            <img src="https://i.postimg.cc/P5hT30nV/star.png" alt="star" width="40" height="40" style="margin-bottom:20px; margin-right:10px"/>
+            <font size="6">@Html.DisplayFor(model => model.Ocjena)</font>
+            
         </dd>
-        <dt class = "col-sm-2">
+        <dt hidden class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IgricaId)
         </dt>
-        <dd class = "col-sm-10">
+        <dd hidden class = "col-sm-10">
             @Html.DisplayFor(model => model.IgricaId)
         </dd>
-        <dt class = "col-sm-2">
+        <dt hidden class = "col-sm-2">
             @Html.DisplayNameFor(model => model.KorisnikId)
         </dt>
-        <dd class = "col-sm-10">
+        <dd hidden class = "col-sm-10">
             @Html.DisplayFor(model => model.KorisnikId)
         </dd>
     </dl>

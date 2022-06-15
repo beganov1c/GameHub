@@ -52,28 +52,10 @@ namespace GameHub.Controllers
             return View(igrica);
         }
 
-        // GET: Igrica/Komentiraj/5
-        public IActionResult Komentiraj(int? id)
-        {
-            var model = new KomentarIgrica();
-            model.IgricaId = (int) id;
-            return View(model);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Komentiraj([Bind("Id,Tekst,Ocjena,IgricaId")] KomentarIgrica komentarIgrica)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.KomentarIgrica.Add(komentarIgrica);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(komentarIgrica);
-        }
+       
         // GET: Igrica/Create
-        [Authorize]
+        [Authorize(Roles ="GamingKompanija, Developer")]
         public IActionResult Create()
         {
             return View();
@@ -96,7 +78,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Edit/5
-        [Authorize]
+        [Authorize(Roles ="GamingKompanija, Developer")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -148,7 +130,7 @@ namespace GameHub.Controllers
         }
 
         // GET: Igrica/Delete/5
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

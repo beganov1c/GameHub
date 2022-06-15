@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameHub.Data;
 using GameHub.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameHub.Controllers
 {
@@ -57,7 +58,7 @@ namespace GameHub.Controllers
 
             return View(komentarIgrica);
         }
-
+        [Authorize(Roles = "Gamer")]
         // GET: KomentarIgrica/Create
         public IActionResult Create(int? id)
         {
@@ -88,7 +89,7 @@ namespace GameHub.Controllers
             }
             return View(komentarIgrica);
         }
-
+        [Authorize(Roles = "Gamer")]
         // GET: KomentarIgrica/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -139,6 +140,8 @@ namespace GameHub.Controllers
             }
             return View(komentarIgrica);
         }
+
+        [Authorize(Roles = "Admin")]
 
         // GET: KomentarIgrica/Delete/5
         public async Task<IActionResult> Delete(int? id)
