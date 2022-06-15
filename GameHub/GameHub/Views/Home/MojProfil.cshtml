@@ -13,6 +13,9 @@
     <h4>Korisnik</h4>
     <hr />
 
+    <a class="guestButton" asp-area="Identity" asp-page="/Account/Manage/Index">Postavke</a>
+    <a class="guestButton" asp-controller="KomentarIgrica" asp-action="KomentariKorisnika" asp-route-id="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Id">Moji komentari</a>
+    
     <div class="detail-container">
 
         <div class="detail-child">
@@ -24,6 +27,8 @@
         </div>
 
         <div class="detail-child">
+            <br />
+            <br />
             <dl class="row">
                 <dt class = "col-sm-2">
                     <font size="4"">Korisničko ime:</font>
@@ -43,12 +48,26 @@
                 <dd class = "col-sm-10">
                     <font size="4" style="margin-left: 20px;">@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).BirthDate</font>
                 </dd>
-                <form width="200" style="margin-top: 50px;">
-                     <input type="button" value="Lista igrica" class = "guestButton"/>
-                     <input type="button" value="Postavke" class = "guestButton"/>
-                </form>
+                <dt class = "col-sm-2">
+                    <font size="4">Uloga:</font>
+                </dt>
+                <dd class = "col-sm-10">
+                    @if(User.IsInRole("Gamer")) {
+                    <font size="4" style="margin-left: 20px;">Gamer</font>
+                    }
+                    else if(User.IsInRole("Developer")) {
+                    <font size="4" style="margin-left: 20px;">Developer</font>
+                    }
+                    else if(User.IsInRole("GamingKompanija")) {
+                    <font size="4" style="margin-left: 20px;">Gaming kompanija</font>
+                    }
+                    else {
+                    <font size="4" style="margin-left: 20px;">Admin</font>
+                    }
+                </dd>
+                
+        
             </dl>
         </div>
-
     </div>
 </div>

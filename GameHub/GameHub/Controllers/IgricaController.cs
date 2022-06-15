@@ -167,14 +167,14 @@ namespace GameHub.Controllers
         public async Task<IActionResult> Top10()
         {
             var igrice = await _context.Igrica.ToListAsync();
-            igrice.Sort(compareIgrice);
+            igrice.Sort(CompareIgrice);
 
             igrice = igrice.GetRange(0, 10);
 
             return View(igrice);
         }
 
-        public static int compareIgrice(Igrica ig1, Igrica ig2)
+        public static int CompareIgrice(Igrica ig1, Igrica ig2)
         {
             return ig2.SrednjaOcjena.CompareTo((ig1.SrednjaOcjena));
         }
