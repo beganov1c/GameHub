@@ -18,13 +18,16 @@
     
     <div class="detail-container">
 
-        <div class="detail-child">
-            <dl class="cover">
+        @if (SignInManager.UserManager.Users.First(user => user.UserName == User.Identity.Name).Slika != null)
+        {
+            <div class="detail-child">
+                <dl class="cover">
                 <dt>
                     <img src="@SignInManager.UserManager.Users.First(user => user.UserName==User.Identity.Name).Slika" alt="user" width="300" height="300" style="margin-left:20px; border-radius: 50%; border:solid 2px; border-color: white;"/>
                 </dt>
             </dl>
         </div>
+        }
 
         <div class="detail-child">
             <br />
