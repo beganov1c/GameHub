@@ -141,7 +141,7 @@ namespace GameHub.Controllers
             return View(komentarIgrica);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Gamer")]
 
         // GET: KomentarIgrica/Delete/5
         public async Task<IActionResult> Delete(int? id)
