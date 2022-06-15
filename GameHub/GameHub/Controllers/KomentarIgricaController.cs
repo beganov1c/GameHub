@@ -136,7 +136,7 @@ namespace GameHub.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("KomentariIgrica");
+                return RedirectToAction("KomentariIgrica", new {id=komentarIgrica.IgricaId});
             }
             return View(komentarIgrica);
         }
