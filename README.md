@@ -1,6 +1,7 @@
 # Grupa4 - OstriMomci (#momci)
 ---------------------------
 **Naziv aplikacije:** GameHub
+**Deployment link:** [GameHub](http://ostrimomci-001-site1.dtempurl.com/)
 
 **Ekipa:**
 - Elvedin Smajić
