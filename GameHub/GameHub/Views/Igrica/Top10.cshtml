@@ -67,7 +67,7 @@
                 @if(SignInManager.IsSignedIn(User)) {
                  <a asp-controller="KomentarIgrica" asp-action="Create" asp-route-id="@Model.ElementAt(i-1).Id">Komentiraj</a> 
                 }
-                <a asp-action="Details" asp-route-id="@Model.ElementAt(i-1).Id">Details</a> 
+                <a asp-action="Details" asp-route-id="@Model.ElementAt(i-1).Id">Detalji</a> 
             </td>
         </tr>
 }
