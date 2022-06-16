@@ -20,3 +20,15 @@ GameHub je mjesto za gaming entuzijaste koji vole razgovarati o igricama i devel
 - **Prof. Harisu Šupiću**, koji nas je upoznao sa različitim algoritmima i strukturama podataka koji se koriste u programiranju
 - **Prof. Samiru Ribiću**, koji nas je naučio o ponašanju operativnog sistema i sistemskom programiranju
 - **i naravno našim roditeljima na podršci.**
+
+**Veliko hvala beta-testerima aplikacije:**
+- **Kemalu**
+- **Nadiru**
+- **Emini**
+- **Selmi**
+- **Adnanu**
+- **Vehidu**
+- **Semini**
+- **Tariku**
+- **Berini**
+- **Nedimu**
